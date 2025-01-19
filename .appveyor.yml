@@ -19,3 +19,10 @@ build_script:
 
 test_script:
   - yarn lint # скрипт тестирования
+
+deploy_script: # скрипт развертывания
+ - git config --global credential.helper store
+ - git config --global user.name AppVeyor
+ - git config --global user.email ci@appveyor.com
+ - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
+ - npx gh-pages -d dist -u "appveyor-bot <ci@appveyor>"
