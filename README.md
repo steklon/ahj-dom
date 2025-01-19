@@ -1,10 +1,12 @@
-### Перемещение элемента
+[![Build status](https://ci.appveyor.com/api/projects/status/5grxo8pkxjvekd9d?svg=true)](https://ci.appveyor.com/project/steklon/ahj-dom)
 
-#### Легенда
+# Перемещение элемента
+
+## Легенда
 
 Вы решили развлечься и реализовать некое подобие игры, где гномы (или другие существа), выскакивают из "отверстий" и по ним нужно бить молотком
 
-#### Описание
+### Описание
 
 Соберите инфраструктуру проекта на базе Webpack, ESLint, Babel, Jest, Webpack Dev Server.
 
