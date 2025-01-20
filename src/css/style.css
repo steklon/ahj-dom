@@ -11,8 +11,15 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(4, 100px);
-    gap: 5px;
     position: relative;
+}
+
+.cell {
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    background-color: #3c7564;;
+    width: 100px;
+    height: 100px;
 }
 
 img {

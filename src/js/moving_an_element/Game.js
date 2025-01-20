@@ -1,8 +1,26 @@
+import goblinImage from "../../img/goblin.png";
+
 export default class Game {
   constructor() {
-    this.character = document.getElementById("character");
+    this.conteiner = document.querySelector(".game-container");
+    this.character = document.createElement("img");
     this.gridSize = 4;
     this.totalCells = this.gridSize * this.gridSize;
+  }
+
+  createGrid() {
+    for (let i = 0; i < this.gridSize ** 2; i += 1) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      cell.dataset.index = i;
+      this.conteiner.appendChild(cell);
+    }
+  }
+
+  characterInitialization() {
+    this.character.id = "character";
+    this.character.src = goblinImage;
+    this.conteiner.insertAdjacentElement("beforeend", this.character);
   }
 
   getRandomPosition() {

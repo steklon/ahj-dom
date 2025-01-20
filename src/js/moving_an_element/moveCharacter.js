@@ -20,8 +20,10 @@ export function moveCharacter(currentPosition, position) {
 }
 
 export default function start() {
-  let position = new Game();
-  let currentPosition = position.getRandomPosition();
+  const position = new Game();
+  position.createGrid();
+  position.characterInitialization();
+  const currentPosition = position.getRandomPosition();
 
   position.setCharacterPosition(currentPosition.row, currentPosition.col);
   setInterval(() => moveCharacter(currentPosition, position), 1000);
