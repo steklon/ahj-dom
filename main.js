@@ -1,13 +1,40 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "";
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 var __webpack_exports__ = {};
 
+;// CONCATENATED MODULE: ./src/img/goblin.png
+const goblin_namespaceObject = __webpack_require__.p + "2dbd01ce16c0fa83cb67.png";
 ;// CONCATENATED MODULE: ./src/js/moving_an_element/Game.js
+
 class Game {
   constructor() {
-    this.character = document.getElementById("character");
+    this.conteiner = document.querySelector(".game-container");
+    this.character = document.createElement("img");
     this.gridSize = 4;
     this.totalCells = this.gridSize * this.gridSize;
+  }
+  createGrid() {
+    for (let i = 0; i < this.gridSize ** 2; i += 1) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      cell.dataset.index = i;
+      this.conteiner.appendChild(cell);
+    }
+  }
+  characterInitialization() {
+    this.character.id = "character";
+    this.character.src = goblin_namespaceObject;
+    this.conteiner.insertAdjacentElement("beforeend", this.character);
   }
   getRandomPosition() {
     const randomIndex = Math.floor(Math.random() * this.totalCells);
@@ -39,8 +66,10 @@ function moveCharacter(currentPosition, position) {
   position.setCharacterPosition(currentPosition.row, currentPosition.col);
 }
 function start() {
-  let position = new Game();
-  let currentPosition = position.getRandomPosition();
+  const position = new Game();
+  position.createGrid();
+  position.characterInitialization();
+  const currentPosition = position.getRandomPosition();
   position.setCharacterPosition(currentPosition.row, currentPosition.col);
   setInterval(() => moveCharacter(currentPosition, position), 1000);
 }
